@@ -1,0 +1,78 @@
+<!-- <div>Main 페이지</div> -->
+<script>
+  let hour = new Date().getHours();
+  let min = new Date().getMinutes();
+</script>
+
+<header>
+  <!-- 인포 -->
+  <div class="info-bar">
+    <div class="info-bar__time">{hour}:{min}</div>
+    <div class="info-bar__icon">
+      <img src="assets/char-bar.svg" alt="차트" />
+      <img src="assets/wifi.svg" alt="와이파이" />
+      <img src="assets/bettery.svg" alt="배터리" />
+    </div>
+  </div>
+  <!-- 상단 메뉴 -->
+  <div class="menu-bar">
+    <div class="menu-bar__location">
+      <div>강남</div>
+      <div class="menu-bar__iconi">
+        <img src="assets/arrow.svg" alt="" />
+      </div>
+    </div>
+    <div class="menu-bar__icon">
+      <img src="assets/search.svg" alt="" />
+      <img src="assets/menu.svg" alt="" />
+      <img src="assets/bell.svg" alt="" />
+    </div>
+  </div>
+</header>
+<!-- 메인 -->
+<main>
+  <a class="width-btn" href="#/write">+ 글씨기</a>
+</main>
+<!-- 하단 메뉴 -->
+<footer>
+  <div class="footer-block">
+    <div class="footer-icons">
+      <div class="footer-icons__img">
+        <img src="assets/home.svg" alt="" />
+      </div>
+      <div class="footer-icon__desc">홈</div>
+    </div>
+    <div class="footer-icons">
+      <div class="footer-icons__img">
+        <img src="assets/docu.svg" alt="" />
+      </div>
+      <div class="footer-icon__desc">동네생활</div>
+    </div>
+    <div class="footer-icons">
+      <div class="footer-icons__img">
+        <img src="assets/location.svg" alt="" />
+      </div>
+      <div class="footer-icon__desc">내 근처</div>
+    </div>
+    <div class="footer-icons">
+      <div class="footer-icons__img">
+        <img src="assets/chat.svg" alt="" />
+      </div>
+      <div class="footer-icon__desc">채팅</div>
+    </div>
+    <div class="footer-icons">
+      <div class="footer-icons__img">
+        <img src="assets/user.svg" alt="" />
+      </div>
+      <div class="footer-icon__desc">나의 당근</div>
+    </div>
+  </div>
+</footer>
+
+<!-- <div class="media-info-msg">화면을 축소 해주세요</div> -->
+
+<style>
+  .info-bar__time {
+    color: red;
+  }
+</style>
