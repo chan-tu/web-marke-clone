@@ -10,17 +10,57 @@
   import Router from "svelte-spa-router";
   import NotFound from "./pages/NotFound.svelte";
   import "./css/style.css";
+  import { user$ } from "./store";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithCredential,
+  } from "firebase/auth";
+  import { onMount } from "svelte";
+  import Loading from "./pages/Loading.svelte";
+  import MyPage from "./pages/MyPage.svelte";
+
+  // const provider = new GoogleAuthProvider();
+
+  // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+
+  // let login = false;
+
+  let isloading = true;
+
+  const auth = getAuth();
+
+  const checklogin = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return (isloading = false);
+
+    const credential = GoogleAuthProvider.credential(null, token);
+    const result = await signInWithCredential(auth, credential);
+    const user = result.user;
+    user$.set(user);
+    isloading = false;
+  };
+
   const routes = {
     "/": Main,
-    "/login": Login,
     "/signup": Signup,
     "/write": Write,
+    "/my": MyPage,
     "*": NotFound,
   };
+
+  onMount(() => checklogin());
 </script>
 
+{#if isloading}
+  <Loading />
+{:else if !$user$}
+  <Login />
+{:else}
+  <Router {routes} />
+{/if}
+
 <!-- html 작성 -->
-<Router {routes} />
 
 <!-- <main>
   <div>
